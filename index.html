@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Apple Mobile Products | Homepage</title>
+
+    <style>
+      body {
+        font-family: "Arial", sans-serif;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        background-color: #f5f5f7;
+        color: #333;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      nav {
+        background-color: #000;
+        padding: 1rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+      }
+      nav a {
+        color: white;
+        text-decoration: none;
+        margin: 0 15px;
+        font-weight: bold;
+        transition: color 0.3s;
+      }
+      nav a:hover {
+        color: #bbb;
+      }
+      .logo img {
+        width: 120px;
+      }
+      .company-name {
+        font-size: 2rem;
+        font-weight: bold;
+        color: white;
+        text-shadow: 2px 2px 4px #333, -2px -2px 4px #333;
+      }
+      .hero {
+        text-align: center;
+        padding: 100px 20px;
+        background-image: url("https://www.apple.com/newsroom/images/product/iphone/standard/Apple_announce-iPhone13_09142021_big.jpg.large.jpg");
+        background-size: cover;
+        background-position: center;
+        color: white;
+        position: relative;
+      }
+      .hero h1 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+      }
+      .hero p {
+        font-size: 1.2rem;
+        margin-bottom: 20px;
+        color: #f5f5f7;
+        text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6); 
+      }
+      .company-details {
+        margin: 20px auto;
+        width: 80%;
+        background-color: white;
+        border-collapse: collapse;
+        box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1); 
+      }
+      .company-details th,
+      .company-details td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
+      }
+      .company-details th {
+        background-color: #f2f2f2;
+        font-weight: bold;
+        text-shadow: 1px 1px 2px #aaa; 
+      }
+      .new-products {
+        padding: 50px 20px;
+        background-color: white;
+        text-align: center;
+      }
+      .new-products h2 {
+        font-size: 2.5rem;
+        margin-bottom: 40px;
+      }
+      .product-cards {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 20px;
+      }
+      .product-card {
+        background-color: #f0f0f0;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        width: 300px;
+        padding: 20px;
+        transition: transform 0.3s;
+      }
+      .product-card:hover {
+        transform: scale(1.05);
+      }
+      .product-card img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 10px;
+      }
+      .product-card h3 {
+        font-size: 1.5rem;
+        margin-top: 15px;
+      }
+      .product-card p {
+        font-size: 1rem;
+        color: #666;
+      }
+      .promo-video {
+        padding: 50px 20px;
+        background-color: #f5f5f5;
+        text-align: center;
+      }
+      .promo-video h2 {
+        font-size: 2.5rem;
+        margin-bottom: 40px;
+      }
+      .promo-video iframe {
+        width: 80%;
+        height: 450px;
+        border: none;
+      }
+      .shop-now {
+        padding: 50px 20px;
+        background-color: #f5f5f5;
+        text-align: center;
+      }
+      .shop-now h2 {
+        font-size: 2.5rem;
+        margin-bottom: 40px;
+      }
+      .shop-products {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 20px;
+      }
+      .shop-item {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        text-align: left;
+      }
+      .shop-item img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 10px;
+      }
+      .shop-item h3 {
+        font-size: 1.2rem;
+        margin-bottom: 10px;
+      }
+      .shop-item button {
+        background-color: #0070c9;
+        color: white;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-right: 10px;
+        transition: background-color 0.3s;
+      }
+      .shop-item button:hover {
+        background-color: #005bb5;
+      }
+      .clients {
+        padding: 50px 20px;
+        background-color: white;
+        text-align: center;
+      }
+      .clients h2 {
+        font-size: 2.5rem;
+        margin-bottom: 40px;
+      }
+      .clients img {
+        width: 150px;
+        margin: 20px;
+        display: inline-block;
+        vertical-align: middle;
+      }
+      footer {
+        background-color: #000;
+        color: white;
+        padding: 50px 20px;
+        text-align: center;
+      }
+      footer a {
+        color: #bbb;
+        margin: 0 10px;
+        text-decoration: none;
+        transition: color 0.3s;
+      }
+      footer a:hover {
+        color: white;
+      }
+      footer .footer-columns {
+        display: flex;
+        justify-content: center;
+        gap: 40px;
+        flex-wrap: wrap;
+        margin-bottom: 20px;
+      }
+      footer .footer-columns div {
+        flex: 1;
+        min-width: 200px;
+      }
+      footer p {
+        margin: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <div class="logo">
+        <img src="apple-logo.png" alt="Apple Logo" />
+      </div>
+      <div class="company-name">Apple Inc.</div>
+      <div class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#new-products">New Products</a>
+        <a href="#shop-now">Shop Now</a>
+      </div>
+    </nav>
+    
+    <section class="hero" id="home">
+      <h1>Innovate. Lead. Inspire.</h1>
+      <p>
+        Discover the latest in Apple mobile products that are revolutionizing
+        the world.
+      </p>
+    </section>
+    <table class="company-details">
+      <tr>
+        <th>Company Name</th>
+        <td>Apple Inc.</td>
+      </tr>
+      <tr>
+        <th>Description</th>
+        <td>
+          Apple is a global leader in mobile products and services,
+          revolutionizing technology through innovation and design.
+        </td>
+      </tr>
+      <tr>
+        <th>Headquarters</th>
+        <td>Cupertino, California, U.S.</td>
+      </tr>
+      <tr>
+        <th>CEO</th>
+        <td>Tim Cook</td>
+      </tr>
+      <tr>
+        <th>Revenue</th>
+        <td>$365.8 billion (2021)</td>
+      </tr>
+    </table>
+    <section class="new-products" id="new-products">
+      <h2>Newly Launched Products</h2>
+      <div class="product-cards">
+        <div class="product-card">
+          <img src="iphone14.png" alt="iPhone 14" />
+          <h3>iPhone 14</h3>
+          <p>
+            The latest iPhone with A15 Bionic chip, 5G capability, and advanced
+            camera features.
+          </p>
+        </div>
+        <div class="product-card">
+          <img src="macbookpro.jpg" alt="MacBook Pro 2023" />
+          <h3>MacBook Pro 2023</h3>
+          <p>
+            Powerful M1 chip, Retina display, and all-day battery life for
+            professional users.
+          </p>
+        </div>
+        <div class="product-card">
+          <img src="ipadpro.jpg" alt="iPad Pro 2023" />
+          <h3>iPad Pro 2023</h3>
+          <p>
+            Experience ultimate performance with the new iPad Pro featuring the
+            M1 chip.
+          </p>
+        </div>
+        <div class="product-card">
+          <img src="applewatch8.jpeg" alt="Apple Watch Series 8" />
+          <h3>Apple Watch Series 8</h3>
+          <p>
+            Track your health metrics and stay connected with the new Apple
+            Watch.
+          </p>
+        </div>
+      </div>
+    </section>
+    <section class="promo-video">
+      <h2>Watch Our Latest Promo</h2>
+      <iframe
+        src="https://www.youtube.com/embed/eDqfg_LexCQ?si=x124Q8jLl3GHlVSY"
+        allowfullscreen
+      ></iframe>
+    </section>
+    <section class="shop-now" id="shop-now">
+      <h2>Shop Now</h2>
+      <div class="shop-products">
+        <div class="shop-item">
+          <img src="iphone.jpeg" alt="iPhone 14" />
+          <h3>iPhone 14</h3>
+          <button>Shop</button>
+          <button>Add to Cart</button>
+        </div>
+        <div class="shop-item">
+          <img src="macbookpro.jpg" alt="MacBook Pro 2023" />
+          <h3>MacBook Pro 2023</h3>
+          <button>Shop</button>
+          <button>Add to Cart</button>
+        </div>
+        <div class="shop-item">
+          <img src="ipadpro.jpg" alt="iPad Pro 2023" />
+          <h3>iPad Pro 2023</h3>
+          <button>Shop</button>
+          <button>Add to Cart</button>
+        </div>
+        <div class="shop-item">
+          <img src="watch.jpeg" alt="Apple Watch Series 8" />
+          <h3>Apple Watch Series 8</h3>
+          <button>Shop</button>
+          <button>Add to Cart</button>
+        </div>
+        <div class="shop-item">
+          <img src="airpod.jpeg" alt="AirPods Pro" />
+          <h3>AirPods Pro</h3>
+          <button>Shop</button>
+          <button>Add to Cart</button>
+        </div>
+        <div class="shop-item">
+          <img src="mac mini m1.png" alt="Mac Mini M1" />
+          <h3>Mac Mini M1</h3>
+          <button>Shop</button>
+          <button>Add to Cart</button>
+        </div>
+        <div class="shop-item">
+          <img src="appletv.jpeg" alt="Apple TV 4K" />
+          <h3>Apple TV 4K</h3>
+          <button>Shop</button>
+          <button>Add to Cart</button>
+        </div>
+        <div class="shop-item">
+          <img src="imac.jpeg" alt="iMac 2023" />
+          <h3>iMac 2023</h3>
+          <button>Shop</button>
+          <button>Add to Cart</button>
+        </div>
+        <div class="shop-item">
+          <img src="homepod.jpeg" alt="HomePod Mini" />
+          <h3>HomePod Mini</h3>
+          <button>Shop</button>
+          <button>Add to Cart</button>
+        </div>
+        <div class="shop-item">
+          <img src="magickeyboard.jpeg" alt="Magic Keyboard" />
+          <h3>Magic Keyboard</h3>
+          <button>Shop</button>
+          <button>Add to Cart</button>
+        </div>
+      </div>
+    </section>
+    <section class="clients">
+      <h2>Our Clients</h2>
+      <img src="ibm.png" alt="Client 1" />
+      <img src="deloitte.png" alt="Client 2" />
+      <img src="accenture.png" alt="Client 3" />
+      <img src="sap.png" alt="Client 4" />
+      <img src="bank.png" alt="Client 5" />
+    </section>
+    <footer>
+      <div class="footer-columns">
+        <div>
+          <h4>About Us</h4>
+          <p>
+            Apple Inc. is committed to innovation and customer satisfaction with
+            every product.
+          </p>
+        </div>
+        <div>
+          <h4>Quick Links</h4>
+          <a href="#new-products">New Products</a><br />
+          <a href="#shop-now">Shop Now</a><br />
+        </div>
+        <div>
+          <h4>Connect</h4>
+          <a href="https://twitter.com/Apple">Twitter</a><br />
+          <a href="https://www.facebook.com/apple">Facebook</a><br />
+          <a href="https://www.linkedin.com/company/apple">LinkedIn</a>
+        </div>
+      </div>
+      <p>&copy; 2024 Apple Inc. All rights reserved.</p>
+    </footer>
+  </body>
+</html>
